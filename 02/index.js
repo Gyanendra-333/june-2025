@@ -13,7 +13,7 @@ const app = express();
 // Middlewares
 app.use(cors());
 app.use(express.json());
-
+ 
 // Sample test route
 app.get('/', (req, res) => {
     res.send('APP is running...');
