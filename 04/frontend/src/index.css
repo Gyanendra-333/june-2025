@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
-
+/* tailwind css */
 @import "tailwindcss";
+
+/* Import Swiper styles */
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
 
 
 body {
