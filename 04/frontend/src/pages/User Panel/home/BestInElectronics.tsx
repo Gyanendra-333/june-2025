@@ -1,41 +1,73 @@
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import monitor from "../../../../public/assets/monitor.webp";
+import watches from "../../../../public/assets/watches.webp";
+import projectors from "../../../../public/assets/projectors.webp";
+import cctv from "../../../../public/assets/cctv.webp";
 
 type Product = {
     id: number;
     name: string;
     image: string;
     price: string;
-    slug: string; // category slug
+    slug: string;
 };
 
 const products: Product[] = [
     {
         id: 1,
-        name: "Samsung Galaxy S23",
-        image: "/electronics/samsung.jpg",
+        name: "Monitors",
+        image: monitor,
         price: "₹79,999",
         slug: "mobiles",
     },
     {
         id: 2,
-        name: "Sony Headphones",
-        image: "/electronics/sony.jpg",
+        name: "Watches",
+        image: watches,
         price: "₹7,499",
         slug: "headphones",
     },
     {
         id: 3,
-        name: "Apple MacBook Air",
-        image: "/electronics/macbook.jpg",
+        name: "Projectors",
+        image: projectors,
         price: "₹1,05,999",
         slug: "laptops",
     },
     {
         id: 4,
-        name: "Canon DSLR Camera",
-        image: "/electronics/canon.jpg",
+        name: "CCTV",
+        image: cctv,
+        price: "₹54,999",
+        slug: "cameras",
+    },
+    {
+        id: 5,
+        name: "Monitors",
+        image: monitor,
+        price: "₹79,999",
+        slug: "mobiles",
+    },
+    {
+        id: 6,
+        name: "Watches",
+        image: watches,
+        price: "₹7,499",
+        slug: "headphones",
+    },
+    {
+        id: 7,
+        name: "Projectors",
+        image: projectors,
+        price: "₹1,05,999",
+        slug: "laptops",
+    },
+    {
+        id: 8,
+        name: "CCTV",
+        image: cctv,
         price: "₹54,999",
         slug: "cameras",
     },
@@ -52,8 +84,8 @@ function BestInElectronics() {
                     Best in <span className="text-[#FF9F00]">Electronics</span>
                 </h2>
                 <button
-                    onClick={() => navigate("/category/electronics")}
-                    className="text-sm text-[#2874F0] font-medium hover:underline"
+                    onClick={() => navigate("/best-in-electronics/electronics")}
+                    className="text-sm text-[#2874F0] hover:underline cursor-pointer font-semibold"
                 >
                     View All
                 </button>
@@ -64,22 +96,22 @@ function BestInElectronics() {
                 modules={[Navigation]}
                 navigation
                 spaceBetween={16}
-                slidesPerView={4}
+                slidesPerView={5}
                 className="pb-6"
             >
-                {products.map((product) => (
+                {products?.map((product) => (
                     <SwiperSlide key={product.id}>
                         <div
-                            onClick={() => navigate(`/category/${product.slug}`)}
-                            className="flex flex-col items-center p-3 border rounded-lg hover:shadow-md transition cursor-pointer"
+                            onClick={() => navigate(`/best-in-electronics/${product?.slug}`)}
+                            className="flex flex-col items-center p-3 rounded-lg hover:shadow-2xl transition cursor-pointer"
                         >
                             <img
-                                src={product.image}
-                                alt={product.name}
+                                src={product?.image}
+                                alt={product?.name}
                                 className="h-32 w-32 object-contain mb-2"
                             />
-                            <p className="text-sm font-medium text-gray-700">{product.name}</p>
-                            <p className="text-[#388E3C] font-semibold">{product.price}</p>
+                            <p className="text-sm font-medium text-gray-700">{product?.name}</p>
+                            <p className="text-[#388E3C] font-semibold">{product?.price}</p>
                         </div>
                     </SwiperSlide>
                 ))}

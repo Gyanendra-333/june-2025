@@ -1,4 +1,5 @@
 import Banner from "./home/Banner";
+import BeautyFoodMore from "./home/BeautyFoodMore";
 import BestInElectronics from "./home/BestInElectronics";
 
 
@@ -7,6 +8,7 @@ function Home() {
         <div>
             <Banner />
             <BestInElectronics />
+            <BeautyFoodMore />
         </div>
     )
 }

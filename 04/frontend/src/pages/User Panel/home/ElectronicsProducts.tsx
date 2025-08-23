@@ -1,4 +1,8 @@
 import { useParams } from "react-router-dom";
+import monitor from "../../../../public/assets/monitor.webp";
+import watches from "../../../../public/assets/watches.webp";
+import projectors from "../../../../public/assets/projectors.webp";
+import cctv from "../../../../public/assets/cctv.webp";
 
 type Product = {
     id: number;
@@ -8,39 +12,39 @@ type Product = {
     slug: string;
 };
 
-// 🔹 Same static products (later backend se fetch karenge)
+//  Same static products (later backend se fetch karenge)
 const allProducts: Product[] = [
     {
         id: 1,
-        name: "Samsung Galaxy S23",
-        image: "/electronics/samsung.jpg",
+        name: "Monitor",
+        image: monitor,
         price: "₹79,999",
         slug: "mobiles",
     },
     {
         id: 2,
-        name: "Sony Headphones",
-        image: "/electronics/sony.jpg",
+        name: "Watches",
+        image: watches,
         price: "₹7,499",
         slug: "headphones",
     },
     {
         id: 3,
-        name: "Apple MacBook Air",
-        image: "/electronics/macbook.jpg",
+        name: "Projectors",
+        image: projectors,
         price: "₹1,05,999",
         slug: "laptops",
     },
     {
         id: 4,
-        name: "Canon DSLR Camera",
-        image: "/electronics/canon.jpg",
+        name: "CCTV",
+        image: cctv,
         price: "₹54,999",
         slug: "cameras",
     },
 ];
 
-function CategoryProducts() {
+function ElectronicsProducts() {
     const { slug } = useParams<{ slug: string }>();
 
     const filteredProducts = allProducts.filter(
@@ -53,14 +57,14 @@ function CategoryProducts() {
                 {slug === "electronics" ? "All Electronics" : slug}
             </h1>
 
-            {filteredProducts.length === 0 ? (
+            {filteredProducts?.length === 0 ? (
                 <p>No products found.</p>
             ) : (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {filteredProducts.map((p) => (
+                    {filteredProducts?.map((p) => (
                         <div
                             key={p.id}
-                            className="p-4 border rounded-lg shadow hover:shadow-lg transition"
+                            className="p-4 rounded-lg shadow hover:shadow-lg transition"
                         >
                             <img
                                 src={p.image}
@@ -77,4 +81,4 @@ function CategoryProducts() {
     );
 }
 
-export default CategoryProducts;
+export default ElectronicsProducts;

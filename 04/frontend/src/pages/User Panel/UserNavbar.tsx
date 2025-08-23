@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
 import logo from "../../../public/assets/logo.png";
+import { Link } from "react-router-dom";
 
 function UserNavbar() {
     const [search, setSearch] = useState("");
@@ -16,11 +17,13 @@ function UserNavbar() {
 
                 {/* Logo */}
                 <div className="flex items-center cursor-pointer">
-                    <img
-                        src={logo}
-                        alt="NovaMart Logo"
-                        className="w-38"
-                    />
+                    <Link to={"/"}>
+                        <img
+                            src={logo}
+                            alt="NovaMart Logo"
+                            className="w-38"
+                        />
+                    </Link>
                 </div>
 
                 {/* Search Bar */}
