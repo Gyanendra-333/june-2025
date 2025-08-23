@@ -11,7 +11,7 @@ function UserNavbar() {
     };
 
     return (
-        <header className="bg-[#F1F3F6] text-[#212121] sticky top-0 z-50 shadow-md">
+        <header className="bg-[#0e2436] text-[#212121] sticky top-0 z-50 shadow-md">
             <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
                 {/* Logo */}
@@ -37,7 +37,7 @@ function UserNavbar() {
                     />
                     <button
                         type="submit"
-                        className="bg-[#FF9F00] text-gray-100 px-4 rounded-r-lg flex items-center justify-center hover:bg-[#E68900] cursor-pointer"
+                        className="bg-[#FF9F00] text-gray-100 px-4 rounded-r-lg flex items-center justify-center hover:bg-[#E68900] cursor-pointer transition-all duration-200"
                     >
                         <FaSearch />
                     </button>
@@ -45,10 +45,10 @@ function UserNavbar() {
 
                 {/* Right Menu */}
                 <div className="flex items-center space-x-6">
-                    <button className="hover:text-gray-500 flex items-center gap-2">
+                    <button className="hover:text-gray-300 cursor-pointer text-white flex items-center gap-2">
                         <FaUser /> <span className="hidden md:inline">Login</span>
                     </button>
-                    <button className="hover:text-gray-500 flex items-center gap-2">
+                    <button className="hover:text-gray-300 text-white cursor-pointer transition-all duration-200 flex items-center gap-2">
                         <FaShoppingCart /> <span className="hidden md:inline">Cart</span>
                     </button>
                 </div>
