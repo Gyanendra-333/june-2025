@@ -4,11 +4,12 @@ import Home from "./pages/User Panel/Home";
 import ElectronicsProducts from "./pages/User Panel/home/ElectronicsProducts";
 import BeautyFoodMoreProducts from "./pages/User Panel/home/BeautyFoodMoreProducts";
 import SportsAndHealthcareProducts from "./pages/User Panel/home/SportsAndHealthcareProducts";
+import UserFooter from "./pages/User Panel/UserFooter";
 
 
 function App() {
   return (
-    <div>
+    <>
       <UserNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -16,7 +17,8 @@ function App() {
         <Route path="/beauty-food-more-products" element={<BeautyFoodMoreProducts />} />
         <Route path="/sports-healthcare-products/:id" element={<SportsAndHealthcareProducts />} />
       </Routes>
-    </div>
+      <UserFooter />
+    </>
   );
 }
 
