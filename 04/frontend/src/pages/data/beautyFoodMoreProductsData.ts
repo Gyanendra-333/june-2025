@@ -7,7 +7,7 @@ export type Product = {
     description: string;
 };
 
-export const beautyFoodMoreProducts: Product[] = [
+export const beautyFoodMoreProductsData: Product[] = [
     {
         id: 1,
         name: "Beauty Kit",

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { beautyFoodMoreProducts } from "../../data/beautyFoodMoreProducts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { beautyFoodMoreProductsData } from "../../data/beautyFoodMoreProductsData";
 
 
 function BeautyFoodMore() {
@@ -14,9 +14,9 @@ function BeautyFoodMore() {
                 <h2 className="text-xl font-bold">Beauty, Food, Toys & More</h2>
                 <button
                     onClick={() => navigate("/beauty-food-more-products")}
-                    className="text-blue-600 font-semibold hover:underline"
+                    className="text-blue-600 text-sm font-semibold hover:underline"
                 >
-                    VIEW ALL
+                    View All
                 </button>
             </div>
 
@@ -33,7 +33,7 @@ function BeautyFoodMore() {
                 }}
                 className="mySwiper"
             >
-                {beautyFoodMoreProducts.map((product) => (
+                {beautyFoodMoreProductsData.map((product) => (
                     <SwiperSlide key={product.id}>
                         <div
                             onClick={() => navigate(`/beauty-food-more-products/${product.slug}`)}
