@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaUser, FaBoxOpen, FaHeart } from "react-icons/fa";
 import logo from "../../../public/assets/logo.png";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ function UserNavbar() {
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Searching:", search); // baad mein API call add karenge
+        console.log("Searching:", search);
     };
 
     return (
@@ -21,7 +21,7 @@ function UserNavbar() {
                         <img
                             src={logo}
                             alt="NovaMart Logo"
-                            className="w-38"
+                            className="w-36"
                         />
                     </Link>
                 </div>
@@ -48,16 +48,50 @@ function UserNavbar() {
 
                 {/* Right Menu */}
                 <div className="flex items-center space-x-6">
-                    <button className="hover:text-gray-300 cursor-pointer text-white flex items-center gap-2">
-                        <FaUser /> <span className="hidden md:inline">Login</span>
-                    </button>
+                    {/* Login with Dropdown */}
+                    <div className="relative group">
+                        <button className="hover:text-gray-300 cursor-pointer text-white flex items-center gap-2">
+                            <FaUser /> <span className="hidden md:inline">Login</span>
+                        </button>
+
+                        {/* Dropdown */}
+                        <div className="absolute right-[-3] mt-1 w-44 bg-white rounded-md shadow-lg overflow-hidden z-50 
+                            opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <Link
+                                to="/profile"
+                                className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            >
+                                <FaUser /> Profile
+                            </Link>
+                            <Link
+                                to="/orders"
+                                className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            >
+                                <FaBoxOpen /> Orders
+                            </Link>
+                            <Link
+                                to="/wishlist"
+                                className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            >
+                                <FaHeart /> Wishlist
+                            </Link>
+                            <Link
+                                to="/signup"
+                                className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            >
+                                <FaUser /> Signup
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Cart */}
                     <button className="hover:text-gray-300 text-white cursor-pointer transition-all duration-200 flex items-center gap-2">
                         <FaShoppingCart /> <span className="hidden md:inline">Cart</span>
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Search Bar (visible only on small screens) */}
+            {/* Mobile Search Bar */}
             <div className="px-4 pb-3 md:hidden">
                 <form onSubmit={handleSearch} className="flex">
                     <input
